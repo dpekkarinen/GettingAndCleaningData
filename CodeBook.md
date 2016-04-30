@@ -1,12 +1,12 @@
 # Code Book
 
 ##Description
-This code book summarizes the resulting data fields in `tidy_UCI_HAR_step5_summary.txt`.
+This code book summarizes the transformations and resulting data fields in `tidy_UCI_HAR_step5_summary.txt`.
 
 ##Source Data
 Data for this class project was sourced from the following links:
-[The UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
-[Original Data Archive](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
+* [The UCI Machine Learning Repository](http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones)
+* [Original Data Archive](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
 ##Transformations
 
@@ -30,10 +30,15 @@ Merged combined data set with descriptive activity names.
 Used gsub to replace various strings to clean up the variable labels.
 
 ###Step 5: Created a second, independent tidy data set with the average of each variable for each activity and each subject.
-Merged subject IDs. Used dplyr to produce a new tidy data set that displays the average of each variable for each activity and subject.
+Read the following files:
+- subject_train.txt
+- subject_test.txt
 
-* `activity` - The activity the subject was performing during the test. Can be any of: `walking` (value `1`): subject was walking, `walking upstairs` (value `2`): subject was walking up a staircase, `walking downstairs` (value `3`): subject was walking down a staircase, `sitting` (value `4`): subject was sitting, `standing` (value `5`): subject was standing, `laying` (value `6`): subject was laying down
-* `subject` - The ID (1-30) of the test subject.
-* `variable` - Names the specific measurement variable.
-* `value` - Average of the `variable`.
+Merged subject IDs into the current merged data set. Used dplyr to produce a new tidy data set that displays the average of each variable for each activity and subject.
+
+##Resulting Data Fields
+* `activity` - the activity the subject was performing during the test: `walking` (value `1`): subject was walking, `walking upstairs` (value `2`): subject was walking up a staircase, `walking downstairs` (value `3`): subject was walking down a staircase, `sitting` (value `4`): subject was sitting, `standing` (value `5`): subject was standing, `laying` (value `6`): subject was laying down
+* `subject` - the ID (1-30) of the test subject.
+* `variable` - tames the specific measurement variable
+* `value` - average (mean) of the `variable`
 
