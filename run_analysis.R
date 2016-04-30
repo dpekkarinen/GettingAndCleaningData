@@ -108,4 +108,4 @@ tidyMergedData <- mergedData %>%
   summarize(value=mean(value)) %>%
   arrange(activity, subject, variable)
 
-write.csv(tidyMergedData, file = "tidy_UCI_HAR_step5_summary.txt", row.names = FALSE)
+write.table(tidyMergedData, file = "tidy_UCI_HAR_step5_summary.txt", row.names = FALSE)

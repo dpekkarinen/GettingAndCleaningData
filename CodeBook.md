@@ -24,7 +24,7 @@ Merged train and test data using rbind. Added column names using features.txt da
 Subsetted the data by grepping for the column names matching mean and std.
 
 ###Step 3: Used descriptive activity names to name the activities in the data set.
-Merged combined data set with descriptive activity names.
+Merged combined data set with descriptive activity names (coverted to all lowercase).
 
 ###Step 4: Appropriately labeled the data set with descriptive variable names. 
 Used gsub to replace various strings to clean up the variable labels.
