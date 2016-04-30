@@ -97,6 +97,6 @@ tidyMergedData <- mergedData %>%
   gather(variable, value, -activity, -subject) %>%
   group_by(activity, subject, variable) %>%
   summarize(value=mean(value)) %>%
-  arrange(activity, subject, variable)
+  spread(variable,value)
 
 write.table(tidyMergedData, file = "tidy_UCI_HAR_step5_summary.txt", row.names = FALSE)
