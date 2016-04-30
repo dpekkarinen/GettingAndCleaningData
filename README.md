@@ -3,9 +3,8 @@
 The purpose of this project is to demonstrate your ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis.
 
 This repository contains: 
- *  `run_analysis.R` script for performing the analysis
- *  `CodeBook.md` code book that describes the variables, the data, and transformations performed to clean up the data
- *  `README.md`
+ *  `run_analysis.R` - script for performing the project analysis
+ *  `CodeBook.md` - code book that describes the variables, the data, and transformations performed to clean up the data and produce the output file, `tidy_UCI_HAR_step5_summary.txt`
  
  The script, `run.analysis.R`, performs the following actions:
     * Step 1: Merges the training and the test sets to create one data set.
