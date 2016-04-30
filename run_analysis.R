@@ -5,36 +5,27 @@
 library(tidyr)
 library(dplyr)
 
-# Check to see data directory exists; if not , create the data directory
-if (!file.exists("./data")) {
-    dir.create("./data")
-}
-
-# Download the dataset archive to be used throughtout the asisgnement
-if (!file.exists("./data/UCI_HAR_Dataset.zip")) {
-    download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", 
-        "./data/UCI_HAR_Dataset.zip")
-}
-
-# Unzip the dataset archive
-if (!file.exists("./data/UCI HAR Dataset")) {
-    unzip("./data/UCI_HAR_Dataset.zip", exdir = "./data")
+# Check to see if the Samsung data directory exists; if not , go get the data
+if (!file.exists("./UCI HAR Dataset")) {
+  download.file("https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip", 
+                "./UCI_HAR_Dataset.zip")  
+  unzip("./UCI_HAR_Dataset.zip")
 }
 
 # STEP 1 - Merges the training and the test sets to create one data set.
 
 # Read In Training Data
-X_train <- read.table("./data/UCI HAR Dataset/train/X_train.txt")
-trainLabels <- read.table("./data/UCI HAR Dataset/train/y_train.txt", 
+X_train <- read.table("./UCI HAR Dataset/train/X_train.txt")
+trainLabels <- read.table("./UCI HAR Dataset/train/y_train.txt", 
                              col.names=c("activityNumber"))
 
 # Read In Test Data
-X_test <- read.table("./data/UCI HAR Dataset/test/X_test.txt")
-testLabels <- read.table("./data/UCI HAR Dataset/test/y_test.txt", 
+X_test <- read.table("./UCI HAR Dataset/test/X_test.txt")
+testLabels <- read.table("./UCI HAR Dataset/test/y_test.txt", 
                             col.names=c("activityNumber"))
 
 # Read in second column of features.txt
-features  <- read.table("./data/UCI HAR Dataset/features.txt", 
+features  <- read.table("./UCI HAR Dataset/features.txt", 
                            stringsAsFactors=FALSE)[[2]]
 
 # Merge Traing and Test Data
@@ -56,7 +47,7 @@ mergedData <- mergedData[,meanAndStdColumns]
 mergedDataLabels <- rbind(trainLabels, testLabels)
 
 # Read in activity labels
-activityLabels <- read.table("./data/UCI HAR Dataset/activity_labels.txt", 
+activityLabels <- read.table("./UCI HAR Dataset/activity_labels.txt", 
                              col.names=c("activityNumber", "activityName"))
 
 # Merge with activity labels
@@ -93,10 +84,10 @@ names(mergedData) <- updateVariableNames(names(mergedData))
 # data set with the average of each variable for each activity and each subject.
 
 # Read in Subjects
-trainSubjects <- read.table("./data/UCI HAR Dataset/train/subject_train.txt", 
+trainSubjects <- read.table("./UCI HAR Dataset/train/subject_train.txt", 
                           col.names=c("subject"))
 
-testSubjects <- read.table("./data/UCI HAR Dataset/test/subject_test.txt", 
+testSubjects <- read.table("./UCI HAR Dataset/test/subject_test.txt", 
                           col.names=c("subject"))
 
 # Merge subject data

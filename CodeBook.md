@@ -24,7 +24,7 @@ Merged train and test data using rbind. Added column names using features.txt da
 Subsetted the data by grepping for the column names matching mean and std.
 
 ###Step 3: Used descriptive activity names to name the activities in the data set.
-Merged combined data set with descriptive activity names (coverted to all lowercase).
+Merged combined data set with descriptive activity names (removed `_` and coverted to all lowercase).
 
 ###Step 4: Appropriately labeled the data set with descriptive variable names. 
 Used gsub to replace various strings to clean up the variable labels.
@@ -39,6 +39,6 @@ Merged subject IDs into the current merged data set. Used dplyr to produce a new
 ##Resulting Data Fields
 * `activity` - the activity the subject was performing during the test: `walking` (value `1`): subject was walking, `walking upstairs` (value `2`): subject was walking up a staircase, `walking downstairs` (value `3`): subject was walking down a staircase, `sitting` (value `4`): subject was sitting, `standing` (value `5`): subject was standing, `laying` (value `6`): subject was laying down
 * `subject` - the ID (1-30) of the test subject.
-* `variable` - names the specific measurement variable
+* `variable` - names the specific measurement variable (see features_info.txt in original data archive for measurement details)
 * `value` - average (mean) of `variable`
 
