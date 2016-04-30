@@ -39,6 +39,6 @@ Merged subject IDs into the current merged data set. Used dplyr to produce a new
 ##Resulting Data Fields
 * `activity` - the activity the subject was performing during the test: `walking` (value `1`): subject was walking, `walking upstairs` (value `2`): subject was walking up a staircase, `walking downstairs` (value `3`): subject was walking down a staircase, `sitting` (value `4`): subject was sitting, `standing` (value `5`): subject was standing, `laying` (value `6`): subject was laying down
 * `subject` - the ID (1-30) of the test subject.
-* `variable` - tames the specific measurement variable
-* `value` - average (mean) of the `variable`
+* `variable` - names the specific measurement variable
+* `value` - average (mean) of `variable`
 
