@@ -10,69 +10,87 @@ Data for this class project was sourced from the following links:
 
 ##Transformations
 
-###Step 1: Merged the training and the test sets to create one data set.
-After downloading and unzipping the data archive, read the following files:
-- x_train.txt
-- y_train.txt
-- x_test.txt
-- y_test.txt
-- features.txt
-
-Merged train and test data using rbind. Added column names using features.txt data.
-
-###Step 2: Extracted only the measurements on the mean and standard deviation for each measurement.
-Subsetted the data by grepping for the column names matching mean and std.
-
-###Step 3: Used descriptive activity names to name the activities in the data set.
-Merged combined data set with descriptive activity names (removed `_` and coverted to all lowercase).
-
-###Step 4: Appropriately labeled the data set with descriptive variable names. 
-Used gsub to replace various strings to clean up the variable labels.
-
-###Step 5: Created a second, independent tidy data set with the average of each variable for each activity and each subject.
-Read the following files:
-- subject_train.txt
-- subject_test.txt
-
-Merged subject IDs into the current merged data set. Used dplyr to produce a new tidy data set that displays the average of each variable for each activity and subject.
+- Step 1: Merged the training and the test sets to create one data set.
+- Step 2: Extracted only the measurements on the mean and standard deviation for each measurement.
+- Step 3: Used descriptive activity names to name the activities in the data set.
+- Step 4: Appropriately labeled the data set with descriptive variable names. 
+- Step 5: Created a second, independent tidy data set with the average of each variable for each activity and each subject. Also, added "MeanOf" to new variables calculated in this step.
 
 ##Resulting Data Fields
 
 ###Identifiers
 * `activity` - the activity the subject was performing during the test: `walking` (value `1`): subject was walking, `walking upstairs` (value `2`): subject was walking up a staircase, `walking downstairs` (value `3`): subject was walking down a staircase, `sitting` (value `4`): subject was sitting, `standing` (value `5`): subject was standing, `laying` (value `6`): subject was laying down
-* `subject` - the ID (1-30) of the test subject.
+* `subject` - the ID (1-30) of the specific test subject
 
-###Measurements (Mean of)
-`MeanOf.FastFourierTransform.BodyAcceleration.Mean.X` `MeanOf.FastFourierTransform.BodyAcceleration.Mean.Y` `MeanOf.FastFourierTransform.BodyAcceleration.Mean.Z` `MeanOf.FastFourierTransform.BodyAcceleration.Std.X` `MeanOf.FastFourierTransform.BodyAcceleration.Std.Y` `MeanOf.FastFourierTransform.BodyAcceleration.Std.Z` `MeanOf.FastFourierTransform.BodyAccelerationJerk.Mean.X` `MeanOf.FastFourierTransform.BodyAccelerationJerk.Mean.Y` `MeanOf.FastFourierTransform.BodyAccelerationJerk.Mean.Z` `MeanOf.FastFourierTransform.BodyAccelerationJerk.Std.X` `MeanOf.FastFourierTransform.BodyAccelerationJerk.Std.Y` `MeanOf.FastFourierTransform.BodyAccelerationJerk.Std.Z` `MeanOf.FastFourierTransform.BodyAccelerationMagnitude.Mean` `MeanOf.FastFourierTransform.BodyAccelerationMagnitude.Std` `MeanOf.FastFourierTransform.BodyBodyAccelerationJerkMagnitude.Mean` `MeanOf.FastFourierTransform.BodyBodyAccelerationJerkMagnitude.Std` `MeanOf.FastFourierTransform.BodyBodyGyroscopeJerkMagnitude.Mean` `MeanOf.FastFourierTransform.BodyBodyGyroscopeJerkMagnitude.Std` `MeanOf.FastFourierTransform.BodyBodyGyroscopeMagnitude.Mean` `MeanOf.FastFourierTransform.BodyBodyGyroscopeMagnitude.Std` `MeanOf.FastFourierTransform.BodyGyroscope.Mean.X` `MeanOf.FastFourierTransform.BodyGyroscope.Mean.Y` `MeanOf.FastFourierTransform.BodyGyroscope.Mean.Z` `MeanOf.FastFourierTransform.BodyGyroscope.Std.X` `MeanOf.FastFourierTransform.BodyGyroscope.Std.Y` `MeanOf.FastFourierTransform.BodyGyroscope.Std.Z` `MeanOf.Time.BodyAcceleration.Mean.X`
-`MeanOf.Time.BodyAcceleration.Mean.Y`
-`MeanOf.Time.BodyAcceleration.Mean.Z`
-`MeanOf.Time.BodyAcceleration.Std.X`
-`MeanOf.Time.BodyAcceleration.Std.Y`
-`MeanOf.Time.BodyAcceleration.Std.Z`
-`MeanOf.Time.BodyAccelerationJerk.Mean.X`
-`MeanOf.Time.BodyAccelerationJerk.Mean.Y`
-`MeanOf.Time.BodyAccelerationJerk.Mean.Z`
-`MeanOf.Time.BodyAccelerationJerk.Std.X`
-`MeanOf.Time.BodyAccelerationJerk.Std.Y`
-`MeanOf.Time.BodyAccelerationJerk.Std.Z` `MeanOf.Time.BodyAccelerationJerkMagnitude.Mean` `MeanOf.Time.BodyAccelerationJerkMagnitude.Std` `MeanOf.Time.BodyAccelerationMagnitude.Mean` `MeanOf.Time.BodyAccelerationMagnitude.Std`
-`MeanOf.Time.BodyGyroscope.Mean.X`
-`MeanOf.Time.BodyGyroscope.Mean.Y`
-`MeanOf.Time.BodyGyroscope.Mean.Z`
-`MeanOf.Time.BodyGyroscope.Std.X`
-`MeanOf.Time.BodyGyroscope.Std.Y`
-`MeanOf.Time.BodyGyroscope.Std.Z`
-`MeanOf.Time.BodyGyroscopeJerk.Mean.X`
-`MeanOf.Time.BodyGyroscopeJerk.Mean.Y`
-`MeanOf.Time.BodyGyroscopeJerk.Mean.Z`
-`MeanOf.Time.BodyGyroscopeJerk.Std.X`
-`MeanOf.Time.BodyGyroscopeJerk.Std.Y`
-`MeanOf.Time.BodyGyroscopeJerk.Std.Z`
-`MeanOf.Time.BodyGyroscopeJerkMagnitude.Mean` `MeanOf.Time.BodyGyroscopeJerkMagnitude.Std` `MeanOf.Time.BodyGyroscopeMagnitude.Mean`
-`MeanOf.Time.BodyGyroscopeMagnitude.Std`
-`MeanOf.Time.GravityAcceleration.Mean.X`
-`MeanOf.Time.GravityAcceleration.Mean.Y`
-`MeanOf.Time.GravityAcceleration.Mean.Z`
-`MeanOf.Time.GravityAcceleration.Std.X`
-`MeanOf.Time.GravityAcceleration.Std.Y`
-`MeanOf.Time.GravityAcceleration.Std.Z` `MeanOf.Time.GravityAccelerationMagnitude.Mean` `MeanOf.Time.GravityAccelerationMagnitude.Std`
+###Summary of Measurements
+
+The following variables represent the average for each measurement variable for each activity and each subject.
+
+* `MeanOf.FastFourierTransform.BodyAcceleration.mean...X` 
+* `MeanOf.FastFourierTransform.BodyAcceleration.mean...Y` 
+* `MeanOf.FastFourierTransform.BodyAcceleration.mean...Z` 
+* `MeanOf.FastFourierTransform.BodyAcceleration.std...X` 
+* `MeanOf.FastFourierTransform.BodyAcceleration.std...Y` 
+* `MeanOf.FastFourierTransform.BodyAcceleration.std...Z`
+* `MeanOf.FastFourierTransform.BodyAccelerationJerk.mean...X`
+* `MeanOf.FastFourierTransform.BodyAccelerationJerk.mean...Y`
+* `MeanOf.FastFourierTransform.BodyAccelerationJerk.mean...Z`
+* `MeanOf.FastFourierTransform.BodyAccelerationJerk.std...X`
+* `MeanOf.FastFourierTransform.BodyAccelerationJerk.std...Y`
+* `MeanOf.FastFourierTransform.BodyAccelerationJerk.std...Z`
+* `MeanOf.FastFourierTransform.BodyAccelerationMagnitude.mean..`
+* `MeanOf.FastFourierTransform.BodyAccelerationMagnitude.std..`
+* `MeanOf.FastFourierTransform.BodyBodyAccelerationJerkMagnitude.mean..`
+* `MeanOf.FastFourierTransform.BodyBodyAccelerationJerkMagnitude.std..`
+* `MeanOf.FastFourierTransform.BodyBodyGyroscopeJerkMagnitude.mean..`
+* `MeanOf.FastFourierTransform.BodyBodyGyroscopeJerkMagnitude.std..`
+* `MeanOf.FastFourierTransform.BodyBodyGyroscopeMagnitude.mean..`
+* `MeanOf.FastFourierTransform.BodyBodyGyroscopeMagnitude.std..`
+* `MeanOf.FastFourierTransform.BodyGyroscope.mean...X`
+* `MeanOf.FastFourierTransform.BodyGyroscope.mean...Y`
+* `MeanOf.FastFourierTransform.BodyGyroscope.mean...Z`
+* `MeanOf.FastFourierTransform.BodyGyroscope.std...X`
+* `MeanOf.FastFourierTransform.BodyGyroscope.std...Y`
+* `MeanOf.FastFourierTransform.BodyGyroscope.std...Z`
+* `MeanOf.Time.BodyAcceleration.mean...X`
+* `MeanOf.Time.BodyAcceleration.mean...Y`
+* `MeanOf.Time.BodyAcceleration.mean...Z`
+* `MeanOf.Time.BodyAcceleration.std...X`
+* `MeanOf.Time.BodyAcceleration.std...Y`
+* `MeanOf.Time.BodyAcceleration.std...Z`
+* `MeanOf.Time.BodyAccelerationJerk.mean...X`
+* `MeanOf.Time.BodyAccelerationJerk.mean...Y`
+* `MeanOf.Time.BodyAccelerationJerk.mean...Z`
+* `MeanOf.Time.BodyAccelerationJerk.std...X` 
+* `MeanOf.Time.BodyAccelerationJerk.std...Y`
+* `MeanOf.Time.BodyAccelerationJerk.std...Z`
+* `MeanOf.Time.BodyAccelerationJerkMagnitude.mean..`
+* `MeanOf.Time.BodyAccelerationJerkMagnitude.std..`
+* `MeanOf.Time.BodyAccelerationMagnitude.mean..`
+* `MeanOf.Time.BodyAccelerationMagnitude.std..`
+* `MeanOf.Time.BodyGyroscope.mean...X`
+* `MeanOf.Time.BodyGyroscope.mean...Y`
+* `MeanOf.Time.BodyGyroscope.mean...Z`
+* `MeanOf.Time.BodyGyroscope.std...X`
+* `MeanOf.Time.BodyGyroscope.std...Y`
+* `MeanOf.Time.BodyGyroscope.std...Z`
+* `MeanOf.Time.BodyGyroscopeJerk.mean...X`
+* `MeanOf.Time.BodyGyroscopeJerk.mean...Y`
+* `MeanOf.Time.BodyGyroscopeJerk.mean...Z`
+* `MeanOf.Time.BodyGyroscopeJerk.std...X`
+* `MeanOf.Time.BodyGyroscopeJerk.std...Y`
+* `MeanOf.Time.BodyGyroscopeJerk.std...Z`
+* `MeanOf.Time.BodyGyroscopeJerkMagnitude.mean..`
+* `MeanOf.Time.BodyGyroscopeJerkMagnitude.std..`
+* `MeanOf.Time.BodyGyroscopeMagnitude.mean..`
+* `MeanOf.Time.BodyGyroscopeMagnitude.std..`
+* `MeanOf.Time.GravityAcceleration.mean...X`
+* `MeanOf.Time.GravityAcceleration.mean...Y`
+* `MeanOf.Time.GravityAcceleration.mean...Z`
+* `MeanOf.Time.GravityAcceleration.std...X`
+* `MeanOf.Time.GravityAcceleration.std...Y`
+* `MeanOf.Time.GravityAcceleration.std...Z`
+* `MeanOf.Time.GravityAccelerationMagnitude.mean..`
+* `MeanOf.Time.GravityAccelerationMagnitude.std..`
+
 
