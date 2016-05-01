@@ -61,10 +61,10 @@ mergedData["activity"] <- sub("_", " ", tolower(allMergedActivityNames))
 
 # STEP 4 Appropriately labels the data set with descriptive variable names.
 updateVariableNames <- function(variableNames) {
-    variableNames <- gsub("tBody", "Time.Body", variableNames)
-    variableNames <- gsub("tGravity", "Time.Gravity", variableNames)
-    variableNames <- gsub("fBody", "FastFourierTransform.Body", variableNames)
-    variableNames <- gsub("fGravity", "FFT.Gravity", variableNames)
+    variableNames <- gsub("tBody", "MeanOf.Time.Body", variableNames)
+    variableNames <- gsub("tGravity", "MeanOf.Time.Gravity", variableNames)
+    variableNames <- gsub("fBody", "MeanOf.FastFourierTransform.Body", variableNames)
+    variableNames <- gsub("fGravity", "MeanOf.FastFourierTransform.Gravity", variableNames)
     variableNames <- gsub("Acc", "Acceleration", variableNames)
     variableNames <- gsub("Mag", "Magnitude", variableNames)
     variableNames <- gsub("Gyro", "Gyroscope", variableNames)
